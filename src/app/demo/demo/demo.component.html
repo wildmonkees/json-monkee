@@ -1,0 +1,16 @@
+<h1>JsonMonkee</h1>
+<br>
+<br>
+
+<json-editor [config]="{ 'mode': 'code', 'indentation': 2 }" [json]="config" (jsonChange)="loadedConfig = $event"></json-editor>
+<json-editor [config]="{ 'mode': 'code', 'indentation': 2 }" [json]="json" (jsonChange)="loadedJson = $event"></json-editor>
+
+<br>
+<button (click)="load(config, json)">Load</button>
+
+<br>
+<br>
+
+<div *ngIf="loadedConfig">
+    <json-monkee [config]="loadedConfig" [json]="loadedJson"></json-monkee>
+</div>

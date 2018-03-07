@@ -1,0 +1,16 @@
+<table>
+    <thead>
+    <tr>
+        <th *ngFor="let columnConfig of config.columnConfigs">
+            {{ columnConfig.title }}
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of json | orArray">
+        <td *ngFor="let columnConfig of config.columnConfigs">
+            {{ getValue(columnConfig.jsonPath) }}
+        </td>
+    </tr>
+    </tbody>
+</table>
