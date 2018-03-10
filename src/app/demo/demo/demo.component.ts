@@ -31,8 +31,8 @@ export class DemoComponent {
 
     public loadedJson: any;
     public json: any = {
-        firstName: 'Elian',
-        lastName: 'ORIOU',
+        firstName: 'Jean',
+        lastName: 'Dupond',
         address: '225 Rue de la fraternité',
         zipCode: '75000',
         city: 'PARIS',
