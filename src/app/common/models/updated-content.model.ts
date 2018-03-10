@@ -1,4 +1,4 @@
-import { ModeAbstractComponent } from '../../modes/mode.component';
+import { ModeAbstractComponent } from '../../modes/mode.abstract-component';
 
 export class UpdatedContent {
 
