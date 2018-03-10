@@ -35,4 +35,10 @@ export class JsonEditorComponent implements OnInit, OnChanges {
             setTimeout(() => this.editor.set(this.json));
         }
     }
+
+    public expandAll() {
+        if (this.editor.expandAll) {
+            setTimeout(() => this.editor.expandAll());
+        }
+    }
 }

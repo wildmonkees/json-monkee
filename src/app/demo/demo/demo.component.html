@@ -10,6 +10,6 @@
 <br>
 <br>
 
-<div *ngIf="loadedConfig">
+<div *ngIf="loadedConfig && active">
     <json-monkee [config]="loadedConfig" [json]="loadedJson"></json-monkee>
 </div>

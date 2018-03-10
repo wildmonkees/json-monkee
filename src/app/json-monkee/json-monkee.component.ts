@@ -1,6 +1,8 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, QueryList, ViewChildren } from '@angular/core';
 import { JsonMonkeeConfig, ModeConfig } from '../common/models/config.model';
 import { JsonMonkeeMode } from '../common/models/modes.model';
+import { UpdatedContent } from '../common/models/updated-content.model';
+import { ModeAbstractComponent } from '../modes/mode.abstract-component';
 
 @Component({
     selector: 'json-monkee',
@@ -13,6 +15,7 @@ export class JsonMonkeeComponent implements OnInit {
     @Input() json: any;
     @Output() configChange: EventEmitter<JsonMonkeeConfig> = new EventEmitter<JsonMonkeeConfig>();
     @Output() jsonChange: EventEmitter<any> = new EventEmitter<any>();
+    @ViewChildren(ModeAbstractComponent) modeComponents: QueryList<ModeAbstractComponent>;
 
     public displayedMode: JsonMonkeeMode;
     private enabledConfigs: { mode: JsonMonkeeMode; config: ModeConfig }[];
@@ -40,5 +43,15 @@ export class JsonMonkeeComponent implements OnInit {
         if (this.enabledConfigs.length > 0) {
             this.display(this.enabledConfigs[0].mode);
         }
+    }
+
+    public onJsonInternalUpdate(updatedContent: UpdatedContent) {
+        this.jsonChange.emit(updatedContent.json);
+        this.modeComponents
+            .filter(component => component !== updatedContent.representationModeComponent)
+            .forEach(component => {
+                component.json = updatedContent.json;
+                component.onJsonExternalUpdate(updatedContent.json);
+            });
     }
 }

@@ -8,11 +8,13 @@ import { JsonMonkeeComponent } from './json-monkee/json-monkee.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { JsonEditorComponent } from './common/components/json-editor/json-editor.component';
 import { OrArrayPipe } from './common/or-array.pipe';
+import { Ng2SmartTableModule } from 'ng2-smart-table';
 
 @NgModule({
     imports: [
         BrowserModule,
-        CommonModule
+        CommonModule,
+        Ng2SmartTableModule
     ],
     declarations: [
         JsonMonkeeComponent,

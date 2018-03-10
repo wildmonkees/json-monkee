@@ -1,16 +1,18 @@
-<table>
-    <thead>
-    <tr>
-        <th *ngFor="let columnConfig of config.columnConfigs">
-            {{ columnConfig.title }}
-        </th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let item of json | orArray">
-        <td *ngFor="let columnConfig of config.columnConfigs">
-            {{ getValue(columnConfig.jsonPath) }}
-        </td>
-    </tr>
-    </tbody>
-</table>
+<!--<table>-->
+    <!--<thead>-->
+    <!--<tr>-->
+        <!--<th *ngFor="let columnConfig of config.columnConfigs">-->
+            <!--{{ columnConfig.title }}-->
+        <!--</th>-->
+    <!--</tr>-->
+    <!--</thead>-->
+    <!--<tbody>-->
+    <!--<tr *ngFor="let row of json | orArray">-->
+        <!--<td align="center" *ngFor="let columnConfig of config.columnConfigs">-->
+            <!--{{ getValue(row, columnConfig.jsonPath) }}-->
+        <!--</td>-->
+    <!--</tr>-->
+    <!--</tbody>-->
+<!--</table>-->
+
+<ng2-smart-table [settings]="tableConfig" [source]="data"></ng2-smart-table>

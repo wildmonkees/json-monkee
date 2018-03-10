@@ -2,8 +2,8 @@ export interface JsonMonkeeConfig {
 
     raw?: RawModeConfig;
     tree?: TreeModeConfig;
-    form?: FormModeConfig;
     table?: TableModeConfig;
+    form?: FormModeConfig;
 }
 
 export interface ModeConfig {
@@ -26,10 +26,6 @@ export interface TreeModeConfig extends ModeConfig {
 
 }
 
-export interface FormModeConfig extends ModeConfig {
-
-}
-
 export interface ColumnConfig {
     title: string;
     jsonPath: string;
@@ -37,4 +33,8 @@ export interface ColumnConfig {
 
 export interface TableModeConfig extends ModeConfig {
     columnConfigs: ColumnConfig[];
+}
+
+export interface FormModeConfig extends ModeConfig {
+
 }
