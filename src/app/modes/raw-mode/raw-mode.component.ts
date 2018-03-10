@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { RawModeConfig } from '../../common/models/config.model';
 import { ModeComponent } from '../mode.component';
 
@@ -11,10 +11,7 @@ export class RawModeComponent extends ModeComponent {
 
     @Input() config: RawModeConfig;
     @Input() json?: any;
+    @Output() jsonChange: EventEmitter<any> = new EventEmitter<any>();
 
     public editorConfig = { 'mode': 'code', 'indentation': 2 };
-
-    public onJsonChanged() {
-        // TODO
-    }
 }

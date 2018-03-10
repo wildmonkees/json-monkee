@@ -4,8 +4,8 @@
     </button>
 </div>
 <div class="modes">
-    <raw-mode [config]="config.raw" [json]="json" *ngIf="isDisplayed('raw')"></raw-mode>
-    <tree-mode [config]="config.tree" [json]="json" *ngIf="isDisplayed('tree')"></tree-mode>
-    <table-mode [config]="config.table" [json]="json" *ngIf="isDisplayed('table')"></table-mode>
-    <form-mode [config]="config.form" [json]="json" *ngIf="isDisplayed('form')"></form-mode>
+    <raw-mode [config]="config.raw" [json]="json" (jsonChange)="jsonChange.emit($event)" *ngIf="isDisplayed('raw')"></raw-mode>
+    <tree-mode [config]="config.tree" [json]="json" (jsonChange)="jsonChange.emit($event)" *ngIf="isDisplayed('tree')"></tree-mode>
+    <table-mode [config]="config.table" [json]="json" (jsonChange)="jsonChange.emit($event)" *ngIf="isDisplayed('table')"></table-mode>
+    <form-mode [config]="config.form" [json]="json" (jsonChange)="jsonChange.emit($event)" *ngIf="isDisplayed('form')"></form-mode>
 </div>

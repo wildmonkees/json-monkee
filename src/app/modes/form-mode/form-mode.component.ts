@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormModeConfig } from '../../common/models/config.model';
 import { ModeComponent } from '../mode.component';
 
@@ -11,8 +11,6 @@ export class FormModeComponent extends ModeComponent {
 
     @Input() config: FormModeConfig;
     @Input() json?: any;
+    @Output() jsonChange: EventEmitter<any> = new EventEmitter<any>();
 
-    public onJsonChanged() {
-        // TODO
-    }
 }
